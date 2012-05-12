@@ -12,3 +12,5 @@ csvAH = csvAA.map {|row| Hash[*headersA.zip(row).flatten] }
 csvAH.each do |pojedunczeUFO|
 	@collection.insert(pojedunczeUFO);
 end
+
+puts "zaimportowal dane"
