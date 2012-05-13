@@ -10,8 +10,8 @@ csvAA = CSV.read(filename)
 headersA = csvAA.shift 
 csvAH = csvAA.map {|row| Hash[*headersA.zip(row).flatten] }
 
-@db = Mongo::Connection.new("localhost", portmongo).db(bazadanych)
-@collection = @db.collection(kolekcja)
+@db = Mongo::Connection.new("localhost", portmongo.to_s).db(bazaDanych.to_s)
+@collection = @db.collection(kolekcja.to_s)
 
 csvAH.each do |pojedunczeUFO|
 	@collection.insert(pojedunczeUFO);
