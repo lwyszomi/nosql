@@ -3,21 +3,20 @@ require	'bson'
 require 'mongo'
 require 'couchrest'
 
-@dbmongo = Mongo::Connection.new("localhost", 27017).db("dane_z_ufo")
-@collection = @dbmongo.collection("duzo_danych")
+nazwaPliku = ARGV[0]
+bazaDanych = ARGV[1]
+portCouchDb = ARGV[2]
+
+file = File.open(nazwaPliku, "r")
 
 hash = []
 
-#puts @collection.firstz
-@collection.find.each do |jednoUFO|
-		jednoUFO = jednoUFO.to_hash
-		jednoUFO['_id'] = jednoUFO['_id'].to_s
-		hash << jednoUFO 
+file.each_line do |jednoUFO|
+	jednoUFO.slice!(1..49)	
+	hash << JSON.parse(jednoUFO) 
 end
-puts "wczytal dane z mongo"
-@couch = CouchRest.new("http://127.0.0.1:5984")
-@dbcouch = @couch.database!("duzo_danych")
-hash.each { |ufolek| @dbcouch.save_doc(ufolek)}
-puts "zaimportowal dane"
+couch = CouchRest.new("http://127.0.0.1:"+portCouchDb.to_s)
+dbcouch = couch.database!(bazaDanych)
+hash.to_a.each { |ufolek| dbcouch.save_doc(ufolek)}
 
 
