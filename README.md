@@ -1,20 +1,35 @@
-nosql
+NoSQL
 =====
 
 Repozytorium na potrzeby przedmiotu nosql
 
-Plik import.rb importuje dane do bazy mongoDb
+RUBY
+----
 
-uruchomienie ruby import.rb "nazwapliku.csv" "bazadanych" "nazwa kolekcji" "port do MongoDb"
+Projekt został tworzony na wersji 1.9.3
+
+Potrzebne gemy
+--------------
+
+	- mongo
+	- restcouch
+	- csv
+	- json
+
+Import Danych
+--------------
+
+Uruchomienie ruby import.rb "nazwapliku.csv" "bazadanych" "nazwa kolekcji" "port do MongoDb" "Wielkosc partow"
 
 <pre>
-ruby import.rb daneBiblioteczne.csv biblioteka ksiazki 5984
+ruby import.rb daneBiblioteczne.csv biblioteka ksiazki 5984 10000
 </pre>
 
-plik mongo2couch.sh wykorzystuje mongoexport do wygenerowania pliku .json, korzysta z pliku export.rb exportuje dane z mongoDb do couchDb
+Export Danych
+-------------
 
-uruchomienie mongo2couch.sh "bazadanych" "nazwa kolekcji" "nazwapliku.json" "port do mongoDb" "port do CouchDb"
+Uruchomienie mongo2couch.sh "Wielkosc pakietow" "bazadanych" "nazwa kolekcji" "nazwapliku.json" "port do mongoDb" "port do CouchDb"
 
 <pre>
-mongo2couch.sh biblioteka ksiazki biblioteczne.json 5984 27017
+mongo2couch.sh 10000 biblioteka ksiazki biblioteczne.json 5984 27017
 </pre>
