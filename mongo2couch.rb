@@ -4,10 +4,10 @@ require 'couchrest'
 
 iloscPakietow = ARGV[0].to_f
 bazaDanych = ARGV[1]
-portCouchDb = ARGV[2]
+portCouchDb = ARGV[4]
 
-kolekcja = ARGV[3]
-portMongo = ARGV[4]
+kolekcja = ARGV[2]
+portMongo = ARGV[3]
 
 @dbmongo = Mongo::Connection.new("localhost", portMongo).db(bazaDanych)
 @collection = @dbmongo.collection(kolekcja)
