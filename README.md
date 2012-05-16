@@ -19,17 +19,17 @@ Potrzebne gemy
 Import Danych
 --------------
 
-Uruchomienie ruby import.rb "nazwapliku.csv" "bazadanych" "nazwa kolekcji" "port do MongoDb" "Wielkosc partow"
+Uruchomienie ruby import2mongo.rb "nazwapliku.csv" "bazadanych" "nazwa kolekcji" "port do MongoDb" "Wielkosc partow"
 
 <pre>
-ruby import.rb daneBiblioteczne.csv biblioteka ksiazki 5984 10000
+ruby import2mongo.rb daneBiblioteczne.csv biblioteka ksiazki 27017 10000
 </pre>
 
 Export Danych
 -------------
 
-Uruchomienie mongo2couch.sh "Wielkosc pakietow" "bazadanych" "nazwa kolekcji" "nazwapliku.json" "port do mongoDb" "port do CouchDb"
+Uruchomienie ruby mongo2couch.rb "Wielkosc pakietow" "bazadanych" "nazwa kolekcji" "nazwapliku.json" "port do mongoDb" "port do CouchDb"
 
 <pre>
-mongo2couch.sh 10000 biblioteka ksiazki biblioteczne.json 5984 27017
+ruby mongo2couch.rb 10000 biblioteka ksiazki biblioteczne.json 27017 5984
 </pre>
