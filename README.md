@@ -28,8 +28,8 @@ ruby import2mongo.rb daneBiblioteczne.csv biblioteka ksiazki 27017 10000
 Export Danych
 -------------
 
-Uruchomienie ruby mongo2couch.rb "Wielkosc pakietow" "bazadanych" "nazwa kolekcji" "nazwapliku.json" "port do mongoDb" "port do CouchDb"
+Uruchomienie ruby mongo2couch.rb "Wielkosc pakietow" "bazadanych" "nazwa kolekcji" "port do mongoDb" "port do CouchDb"
 
 <pre>
-ruby mongo2couch.rb 10000 biblioteka ksiazki biblioteczne.json 27017 5984
+ruby mongo2couch.rb 10000 biblioteka ksiazki 27017 5984
 </pre>
