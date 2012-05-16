@@ -28,9 +28,3 @@ while poczatek * iloscPakietow - iloscPakietow < licznik do
 	puts "skopiowano "+(poczatek*iloscPakietow).to_s
 	poczatek+=1	
 end
-
-#@collection.find.each do |jednoUFO|
-#		jednoUFO = jednoUFO.to_hash
-#		jednoUFO['_id'] = jednoUFO['_id'].to_s
-#		hash << jednoUFO 
-#end
